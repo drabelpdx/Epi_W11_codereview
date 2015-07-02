@@ -35,6 +35,13 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def destroy
+    @category = Category.find(params[:category_id])
+    @project = Project.find(params[:id])
+    @project.destroy
+    redirect_to category_path(@category)
+  end
+
   private
   def project_params
     params.require(:project).permit(:name, :description)

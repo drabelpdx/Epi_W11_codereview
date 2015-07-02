@@ -1,14 +1,13 @@
 <% content_for(:title, "Category | Show") %>
 
 <h1><%=@category.name %></h1>
-
 <h3><%=@category.description%></h3>
-
-
+<br>
 <%= link_to 'Edit category', edit_category_path, :class => "btn btn-success" %>  |
-<%= link_to 'Delete', category_path(@category), :class => "btn btn-danger", :data => {:confirm => "You sure?", :method => "delete"} %>
-<%= link_to 'Add a Project', new_category_project_path(@category.id), :class => "btn btn-success" %>
-
+<%= link_to 'Delete', category_path(@category), :class => "btn btn-danger", :data => {:confirm => "You sure?", :method => "delete"} %>  |
+<%= link_to 'Add a Project', new_category_project_path(@category.id), :class => "btn btn-primary" %>
+<hr>
+<h3>Projects:</h3>
 <% @category.projects.each do |project| %>
   <li><%= link_to project.name, category_project_path(@category, project) %></li>
 <%end%>
