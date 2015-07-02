@@ -18,7 +18,22 @@ class ProjectsController < ApplicationController
   def show
     @category = Category.find(params[:category_id])
     @project = Project.find(params[:id])
- end
+  end
+
+  def edit
+    @category = Category.find(params[:category_id])
+    @project = Project.find(params[:id])
+  end
+
+  def update
+    @category = Category.find(params[:category_id])
+    @project = Project.find(params[:id])
+    if @project.update(project_params)
+      redirect_to category_path(@project.category)
+    else
+      render :edit
+    end
+  end
 
   private
   def project_params
