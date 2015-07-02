@@ -9,6 +9,7 @@ class ProjectsController < ApplicationController
     @category = Category.find(params[:category_id])
     @project = @category.projects.new(project_params)
     if @project.save
+      flash[:notice] = "Project successfully added!"
       redirect_to category_path(@project.category)
     else
       render :new
@@ -29,6 +30,7 @@ class ProjectsController < ApplicationController
     @category = Category.find(params[:category_id])
     @project = Project.find(params[:id])
     if @project.update(project_params)
+      flash[:notice] = "Project successfully edited!"
       redirect_to category_path(@project.category)
     else
       render :edit
@@ -40,6 +42,7 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @project.destroy
     redirect_to category_path(@category)
+    flash[:notice] = "Project successfully deleted!"
   end
 
   private

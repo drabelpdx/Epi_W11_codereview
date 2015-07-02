@@ -9,8 +9,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <%= flash[:alert] %>
+  <%= flash[:notice] %>
+  
+  <div class="container">
+    <div class="row">
+      <h2 class="page-header text-center">
+        <%= link_to 'My Portfolio', categories_path %>
+      </h2>
 
-  <%= yield %>
+      <div class="col-sm-6 col-sm-offset-3">
+        <%= yield %>
+      </div>
+
+    </div>
+  </div>
 
 </body>
 </html>
