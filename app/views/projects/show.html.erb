@@ -3,6 +3,9 @@
 <h1><%=@project.name %></h1>
 <h3><%=@project.description%></h3>
 <br>
+<%= link_to 'See it on GitHub', @project.link, :target => 'blank' %>
+
+<br><br>
 <%= link_to 'Edit project', edit_category_project_path, :class => "btn btn-success" %>  |
 <%= link_to 'Delete', category_project_path(@category, @project), :class => "btn btn-danger", :data => {:confirm => "You sure?", :method => "delete"} %>
 
