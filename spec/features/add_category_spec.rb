@@ -9,4 +9,12 @@ describe "add category" do
     click_on 'Create Category'
     expect(page).to have_content 'My'
   end
+
+  it "gives error when no name is entered" do
+    visit categories_path
+    click_on 'Add a Category'
+    click_on 'Create Category'
+   expect(page).to have_content 'errors'
+ end
+
 end
